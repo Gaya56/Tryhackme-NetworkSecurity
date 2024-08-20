@@ -48,6 +48,8 @@ nslookup and dig
   - **Use `nslookup`** for quick, simple DNS queries when you just need basic information without the complexity.
 
 DNSDumpster 
+used for passive reconnaissance. It helps gather information about a domain by mapping out its DNS records, subdomains, and associated IP addresses. 
+This can be useful for identifying the infrastructure of a target during security assessments or for tracking down potential vulnerabilities without directly interacting with the target’s systems.
 
 Shodan.io 
 This record shows a web server; however, as mentioned already, Shodan.io collects information related to any device it can find connected online. 
