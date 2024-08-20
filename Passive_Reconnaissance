@@ -17,6 +17,57 @@ We will learn three command line tools...
 3) "dig"      = To Query DNS servers 
 
 We will also learn the usage of 2 online services; 
-A) DNSDUMPSTER 
+A) DNSDUMPSTER
 B) Shodan.io 
 
+Passive Reconnainssances vs Active Reconnainssance 
+Passive Reconnaissance: Gathering information about a target without directly interacting with it, like using public records or social media. It's stealthy and less likely to alert the target.
+Active Reconnaissance: Directly interacting with the target to gather information, such as scanning networks or probing services. It’s more intrusive and can alert the target to your activities.
+
+What is a WHOIS Server? (stands for "who is") 
+A WHOIS server is a database that stores information about domain names and IP addresses, such as ownership details, contact information and registration dates. 
+It's used to look up who owns a domain or IP. 
+The WHOIS protocol sends queries over the network (Using TCP over port 43) to retrieve this information, which is useful for managing and invertigating online resources. 
+WHOIS is a request and response protocol that follows the RFC 3912 specification
+
+we can learn through WHOIS:
+Registrar: Via which registrar was the domain name registered?
+Contact info of registrant: Name, organization, address, phone, among other things. (unless made hidden via a privacy service)
+Creation, update, and expiration dates: When was the domain name first registered? When was it last updated? And when does it need to be renewed?
+Name Server: Which server to ask to resolve the domain name?
+
+
+nslookup and dig 
+
+- **Major Difference**:
+  - **`dig`**: More detailed and flexible, providing comprehensive DNS query information and options. It’s commonly used by advanced users.
+  - **`nslookup`**: Simpler and more user-friendly, but with fewer features and less detailed output. It's suitable for quick, basic DNS lookups.
+
+- **When to Use**:
+  - **Use `dig`** when you need detailed DNS information, troubleshooting complex issues, or need advanced query options.
+  - **Use `nslookup`** for quick, simple DNS queries when you just need basic information without the complexity.
+
+DNSDumpster 
+
+Shodan.io 
+This record shows a web server; however, as mentioned already, Shodan.io collects information related to any device it can find connected online. 
+Searching for tryhackme.com on Shodan.io will display at least the record shown in the screenshot above. Via this Shodan.io search result, we can learn several things related to our search, such as:
+
+IP address
+hosting company
+geographic location
+server type and version
+
+
+In this room, we focused on passive reconnaissance. In particular, we covered command-line tools, whois, nslookup, and dig. 
+We also discussed two publicly available services DNSDumpster and Shodan.io. The power of such tools is that you can collect information about your targets without directly connecting to them. 
+Moreover, the trove of information you may find using such tools can be massive once you master the search options and get used to reading the results.
+
+Purpose	Commandline Example
+Lookup WHOIS record	whois tryhackme.com
+Lookup DNS A records	nslookup -type=A tryhackme.com
+Lookup DNS MX records at DNS server	nslookup -type=MX tryhackme.com 1.1.1.1
+Lookup DNS TXT records	nslookup -type=TXT tryhackme.com
+Lookup DNS A records	dig tryhackme.com A
+Lookup DNS MX records at DNS server	dig @1.1.1.1 tryhackme.com MX
+Lookup DNS TXT records	dig tryhackme.com TXT
